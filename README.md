@@ -4,6 +4,20 @@ This repository contains a **deep learning model** trained on the **CIFAR-10 dat
 
 ---
 
+## 🐳 Quick Docker Setup
+The API is available as a **Docker image** on Docker Hub. You can pull and run it for instant access on localhost.
+
+### 1️⃣ Pull the Docker Image
+```sh
+docker pull devyashdodiya/fastapi-app
+```
+
+### 2️⃣ Run the API Container
+```sh
+docker run -p 8000:8000 --env API_USERNAME=admin --env API_PASSWORD=admin devyashdodiya/fastapi-app
+````
+---
+
 ## 🔥 Train the Model in Google Colab
 
 ### 1️⃣ Open Google Colab
@@ -90,7 +104,7 @@ from model import ResNet9
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load the trained model
-model_path = "models/best_cifar10_model.pt"  # Update this path if needed
+model_path = os.path.join(os.path.dirname(__file__), "best_cifar10_model.pt")  # Update this name if needed
 model = ResNet9(3, 10)
 model.load_state_dict(torch.load(model_path, map_location=device))
 model.to(device)
