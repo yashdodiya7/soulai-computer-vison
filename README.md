@@ -4,20 +4,6 @@ This repository contains a **deep learning model** trained on the **CIFAR-10 dat
 
 ---
 
-## 🐳 Quick Docker Setup
-The API is available as a **Docker image** on Docker Hub. You can pull and run it for instant access on localhost.
-
-### 1️⃣ Pull the Docker Image
-```sh
-docker pull devyashdodiya/fastapi-app
-```
-
-### 2️⃣ Run the API Container
-```sh
-docker run -p 8000:8000 --env API_USERNAME=admin --env API_PASSWORD=admin devyashdodiya/fastapi-app
-````
----
-
 ## 🔥 Train the Model in Google Colab
 
 ### 1️⃣ Open Google Colab
@@ -125,13 +111,12 @@ To classify an image, use the **`/predict/`** endpoint with **Basic Authenticati
 curl -X 'POST' \
   'http://127.0.0.1:8000/predict/' \
   -H 'accept: application/json' \
-  -H 'Authorization: Basic YWRtaW46YWRtaW4=' \
+  -H 'Authorization: Basic Auth' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@image.jpg'
 ```
 🔹 **Username:** `admin`  
-🔹 **Password:** `admin`  
-🔹 `YWRtaW46YWRtaW4=` is the **Base64 encoding** of `admin:admin`.
+🔹 **Password:** `admin`
 
 ### 🛠️ Using Python
 ```python
@@ -155,6 +140,33 @@ print(response.json())
   "confidence": 98.76
 }
 ```
+---
+## 🐳 Quick Docker Setup
+The API is available as a **Docker image** on Docker Hub. You can pull and run it for instant access on localhost.
+
+### 1️⃣ Pull the Docker Image
+```sh
+docker pull devyashdodiya/fastapi-app
+```
+
+### 2️⃣ Run the API Container
+```sh
+docker run -p 8000:8000 --env API_USERNAME=admin --env API_PASSWORD=admin devyashdodiya/fastapi-app
+````
+
+---
+## 🔐 Authentication in Postman
+This API requires **Basic Authentication**. To authenticate in **Postman**:
+
+1. Open **Postman** and go to the **Authorization** tab.
+2. Select **Basic Auth** as the type.
+3. Enter the following credentials:
+   - **Username:** `admin`
+   - **Password:** `admin`
+4. Go to the **Body** tab and choose **form-data**.
+5. Upload an image file with the key **file**.
+6. Click **Send** to make the request.
+---
 
 ## 🎯 Summary
 ✅ **Set up a virtual environment**  
