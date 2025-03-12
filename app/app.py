@@ -106,7 +106,7 @@ class ResNet9(torch.nn.Module):
 
 # Load the trained model
 try:
-    model_path = "best_cifar10_model.pt"
+    model_path = os.path.join(os.path.dirname(__file__), "best_cifar10_model.pt")
     model = ResNet9(3, 10)
     model.load_state_dict(torch.load(model_path, map_location=device))
     model.to(device)

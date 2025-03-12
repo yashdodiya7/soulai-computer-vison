@@ -98,12 +98,10 @@ model.eval()
 ```
 
 ### 5️⃣ Run the API Server
-Start the FastAPI server using **Uvicorn**:
+Start the FastAPI server using **Uvicorn** in root directory:
 ```sh
-uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+uvicorn app.app:app --host 0.0.0.0 --port 8000 --reload
 ```
-Once running, access the API docs at:
-🔗 **Swagger UI:** [`http://127.0.0.1:8000/docs`](http://127.0.0.1:8000/docs)
 
 ## 🖼️ Making Predictions
 To classify an image, use the **`/predict/`** endpoint with **Basic Authentication**.
