@@ -7,7 +7,7 @@ This repository contains a **deep learning model** trained on the **CIFAR-10 dat
 ## 🔥 Train the Model in Google Colab
 
 ### 1️⃣ Open Google Colab
- - Add code to the New Colab Notebook
+ - Add **`model.py`** file code to the New Colab Notebook
 
 ---
 
@@ -45,6 +45,7 @@ This API provides an endpoint for classifying images into **CIFAR-10 categories*
 │   ├── app.py                 # FastAPI service for image classification
 │   ├── best_cifar10_model.pt  # Trained model for image classification
 ├── requirements.txt           # Python dependencies
+|── model.py                   # ResNet9 model for CIFAR-10 classification
 ├── .env                       # Environment variables for authentication
 └── README.md
 ```
